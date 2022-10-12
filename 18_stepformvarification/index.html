@@ -12,7 +12,7 @@
 
     <div class="container">
         <div id="dot-box" class="dot-box">
-            <span class="dot"></span>
+            <span class="dot done"></span>
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
@@ -23,14 +23,14 @@
 
             <div class="page"> 
                 <label for="email">Security :</label>
-                <input type="email" name="email" id="email" class="form-control invalid" placeholder="Enter Email" autocomplete="off" />
-                <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" autocomplete="off" />
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email" />
+                <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" />
             </div>
 
             <div class="page"> 
                 <label for="firstname">Personal Info :</label>
-                <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Enter First Name" autocomplete="off" />
-                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Enter Last Name" autocomplete="off" />
+                <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Enter First Name" />
+                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Enter Last Name" />
             </div>
 
             <div class="page"> 
@@ -40,16 +40,18 @@
 
             <div class="page"> 
                 <label for="firstname">Contact Info :</label>
-                <input type="text" name="phone" id="phone" class="form-control" placeholder="Enter Phone Number" autocomplete="off" />
-                <input type="text" name="address" id="address" class="form-control" placeholder="Enter Detail Address" autocomplete="off" />
+                <input type="text" name="phone" id="phone" class="form-control" placeholder="Enter Phone Number" />
+                <input type="text" name="address" id="address" class="form-control" placeholder="Enter Detail Address" />
             </div>
 
             <div class="d-flex">
-                <button type="button" id="prev-btn" class="btn">Previous</button>
-                <button type="button" id="next-btn" class="btn">Next</button>
+                <button type="button" id="prev-btn" class="btn" onclick="goNow(-1);">Previous</button>
+                <button type="button" id="next-btn" class="btn" onclick="goNow(1);">Next</button>
             </div>
-
         </form>
+
+        <div id="result-container" class="result-container"></div>
+
     </div>
 
     <script src="./app.js" type="text/javascript"></script>

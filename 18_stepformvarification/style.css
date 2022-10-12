@@ -36,6 +36,10 @@ body {
     opacity: 1;
 }
 
+.dot.done {
+    background-color: green;
+}
+
 #form {
     width: 90%;
     border-left: 2px solid #eee;
@@ -87,4 +91,25 @@ input.invalid {
 
 #prev-btn {
     background-color: #555;
+}
+
+#result-container {
+    display: none;
+    width: 90%;
+}
+
+#result-container ul li {
+    list-style-type: none;
+    padding: 3px;
+}
+
+.submit-btn {
+    width: 90%;
+    background-color: steelblue;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
