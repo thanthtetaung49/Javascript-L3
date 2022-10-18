@@ -12,6 +12,7 @@ body {
     background-color: #f4f4f4;
     padding: 30px;
     box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
 h2 {
@@ -49,4 +50,10 @@ h2 {
 
 .btn:active {
     transform: scale(0.9);
+}
+
+.mode-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
