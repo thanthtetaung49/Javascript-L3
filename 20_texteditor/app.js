@@ -8,35 +8,35 @@ var getButtons = document.querySelectorAll(".btn");
 // console.log(getButtons); // NodeList
 
 getButtons.forEach(function (getButton) {
-    getButton.addEventListener("click", function () {
-        // console.log("hi");
+  getButton.addEventListener("click", function () {
+    // console.log("hi");
 
-        // var getCommand = getButton.getAttribute("data-command");
-        var getCommand = getButton.dataset["command"];
-        // console.log(getCommand);
+    // var getCommand = getButton.getAttribute("data-command");
+    var getCommand = getButton.dataset["command"];
+    // console.log(getCommand);
 
-        if (getCommand === "clearText") {
-            getDivArea.innerHTML = "";
-        } else if (getCommand === "createLink" || getCommand === "insertImage") {
-                                // message                  default
-            let getUrl = prompt("Enter your website link", "https://");
-            document.execCommand(getCommand, false, getUrl);
-        } else if (getCommand === "foreColor") {
-            // console.log(getButton.value);
-            document.execCommand(getCommand, false, getButton.value);
-        } else if (getCommand === "backColor") {
-            document.execCommand(getCommand, false, getButton.value);
-        } else if (getCommand === "fontName") {
-            document.execCommand(getCommand, false, getButton.value);
-        } else if (getCommand === "paste") {
-            navigator.clipboard.readText().then(function (clipText) {
-                // console.log(clipText);
-                getDivArea.innerHTML += clipText;
-            });
-        } else {
-            document.execCommand(getCommand, false, null);
-        };
-    });
+    if (getCommand === "clearText") {
+      getDivArea.innerHTML = "";
+    } else if (getCommand === "createLink" || getCommand === "insertImage") {
+      // message                  default
+      let getUrl = prompt("Enter your website link", "https://");
+      document.execCommand(getCommand, false, getUrl);
+    } else if (getCommand === "foreColor") {
+      // console.log(getButton.value);
+      document.execCommand(getCommand, false, getButton.value);
+    } else if (getCommand === "backColor") {
+      document.execCommand(getCommand, false, getButton.value);
+    } else if (getCommand === "fontName") {
+      document.execCommand(getCommand, false, getButton.value);
+    } else if (getCommand === "paste") {
+      navigator.clipboard.readText().then(function (clipText) {
+        // console.log(clipText);
+        getDivArea.innerHTML += clipText;
+      });
+    } else {
+      document.execCommand(getCommand, false, null);
+    }
+  });
 });
 
 // function boldFun() {

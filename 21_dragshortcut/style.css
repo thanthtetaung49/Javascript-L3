@@ -1,0 +1,56 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.box {
+    color: #fff;
+    background-color: steelblue;
+    position: absolute;
+    cursor: move;
+}
+
+#box-title {
+    padding: 10px;
+}
+
+.btnIcons {
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+    background-color: steelblue;
+    border-radius: 50%;
+    margin: 2px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all 0.5s ease-in;
+}
+
+.btns.show .btnIcons:nth-of-type(1) {
+    bottom: 40px;
+}
+
+.btns.show .btnIcons:nth-of-type(2) {
+    left: 40px;
+    bottom: 30px;
+}
+
+.btns.show .btnIcons:nth-of-type(3) {
+    left: 45px;
+    bottom: -10px;
+}
+
+.btns.show .btnIcons:nth-of-type(4) {
+    bottom: -30px;
+}

@@ -17,38 +17,34 @@ var getNonActives = document.getElementsByClassName("nonactive");
 var currentIdx = 1;
 
 for (var i = 0; i < getImgs.length; i++) {
+  getImgs[i].addEventListener("click", function (e) {
+    showModal();
 
-    getImgs[i].addEventListener("click", function (e) {
+    // console.log(e.target.alt);
+    // console.log(this.alt);
 
-        showModal();
-        
-        // console.log(e.target.alt);
-        // console.log(this.alt);
-
-                                            // remove Space
-        const findIds = this.alt.split("").filter(function (removeSpace) {
-            
-            return removeSpace.trim() !== "";
-        });
-
-        // console.log(findIds);
-        // console.log(findIds[findIds.length - 1]);
-
-        currentIdx = Number(findIds[findIds.length - 1]);
-        // console.log(currentIdx);
-        // console.log(typeof currentIdx);
-
-        slideShow(currentIdx);
+    // remove Space
+    const findIds = this.alt.split("").filter(function (removeSpace) {
+      return removeSpace.trim() !== "";
     });
+
+    console.log(findIds);
+    console.log(findIds[findIds.length - 1]);
+
+    currentIdx = Number(findIds[findIds.length - 1]);
+    // console.log(currentIdx);
+    // console.log(typeof currentIdx);
+
+    slideShow(currentIdx);
+  });
 }
 
 function showModal() {
-    getModal.style.display = "block";
+  getModal.style.display = "block";
 }
 
 getBtnClose.addEventListener("click", function () {
-    
-    getModal.style.display = "none";
+  getModal.style.display = "none";
 });
 
 // getBtnClose.onclick = function () {
@@ -57,68 +53,62 @@ getBtnClose.addEventListener("click", function () {
 // }
 
 document.addEventListener("click", function (e) {
-
-    if (e.target === getModal) {
-        getModal.style.display = "none";
-    }
+  if (e.target === getModal) {
+    getModal.style.display = "none";
+  }
 });
 
 function currentView(num) {
-
-    slideShow(num);
+  slideShow(num);
 }
 
 getNextBtn.addEventListener("click", function () {
-    
-    // console.log("i am next");
-    slideShow(currentIdx += 1);
+  // console.log("i am next");
+  slideShow((currentIdx += 1));
 });
 
 getPrevBtn.addEventListener("click", function () {
-    
-    // console.log("i am prev");
-    slideShow(currentIdx -= 1);
+  // console.log("i am prev");
+  slideShow((currentIdx -= 1));
 });
 
 slideShow(currentIdx);
 
 function slideShow(num) {
+  if (num > getViews.length) {
+    num = 1;
+    currentIdx = 1;
+  }
 
-    if (num > getViews.length) {
+  if (num < 1) {
+    num = getViews.length;
+    currentIdx = getViews.length;
+  }
 
-        num = 1;
-        currentIdx = 1;
-    }
+  // console.log("this is current idx = ", currentIdx);
+  // console.log("this is num = ", num);
 
-    if (num < 1) {
+  var x;
 
-        num = getViews.length;
-        currentIdx = getViews.length;
-    }
+  for (x = 0; x < getViews.length; x++) {
+    getViews[x].style.display = "none";
+  }
 
-    // console.log("this is current idx = ", currentIdx);
-    // console.log("this is num = ", num);
+  for (x = 0; x < getNonActives.length; x++) {
+    // getNonActives[x].classList.remove("active");
+    getNonActives[x].className = getNonActives[x].className.replace(
+      " active",
+      ""
+    );
+  }
 
-    var x;
+  getCounter.textContent = `${num} / ${getViews.length}`;
 
-    for (x = 0; x < getViews.length; x++) {
+  getViews[num - 1].style.display = "block";
 
-        getViews[x].style.display = "none";
-    }
+  getNonActives[num - 1].classList.add("active");
 
-    for (x = 0; x < getNonActives.length; x++) {
-
-        // getNonActives[x].classList.remove("active");
-        getNonActives[x].className = getNonActives[x].className.replace(" active", "");
-    }
-
-    getCounter.textContent = `${num} / ${getViews.length}`;
-
-    getViews[num - 1].style.display = "block";
-
-    getNonActives[num - 1].classList.add("active");
-
-    getCaption.innerText = getNonActives[num - 1].alt;
+  getCaption.innerText = getNonActives[num - 1].alt;
 }
 
 // 21LB

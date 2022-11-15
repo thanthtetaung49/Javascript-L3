@@ -43,19 +43,15 @@ const gettextani = document.querySelector(".txtani");
 
 // return 0 - 3
 function* generator() {
-    
-    var idx = 0;
-    
-    while (true) {
-        
-        yield idx++;
-        
-        if (idx > 3) {
-            
-            idx = 0;
-        }
+  var idx = 0;
+
+  while (true) {
+    yield idx++;
+
+    if (idx > 3) {
+      idx = 0;
     }
-    
+  }
 }
 
 // const testnumber = generator();
@@ -77,56 +73,52 @@ function* generator() {
 // console.log(languages[testnumber.next().value]);
 
 function showwords(word) {
-    // console.log(word);
-    
-    let x = 0;
-    
-    gettextani.innerHTML = "";
-    gettextani.classList.add(colors[languages.indexOf(word)])
-    // gettextani.innerHTML = word;
+  // console.log(word);
+
+  let x = 0;
+
+  gettextani.innerHTML = "";
+  gettextani.classList.add(colors[languages.indexOf(word)]);
+  // gettextani.innerHTML = word;
+  // gettextani.innerHTML += word[1];
+  // gettextani.innerHTML += word[2];
+
+  let showinterval = setInterval(function () {
+    // gettextani.innerHTML = word[0];
     // gettextani.innerHTML += word[1];
-    // gettextani.innerHTML += word[2];
-    
-    let showinterval = setInterval(function () {
-        // gettextani.innerHTML = word[0];
-        // gettextani.innerHTML += word[1];
-        
-        // Nodejs => index number(0 - 5), length(6)
-        if (x >= word.length) {
-            clearInterval(showinterval);
-            deletewords();
-        } else {
-            gettextani.innerHTML += word[x];
-            
-            x++;
-        }
-    }, 500);
+
+    // Nodejs => index number(0 - 5), length(6)
+    if (x >= word.length) {
+      clearInterval(showinterval);
+      deletewords();
+    } else {
+      gettextani.innerHTML += word[x];
+
+      x++;
+    }
+  }, 500);
 }
 
 function deletewords() {
-    
-    let getword = gettextani.innerHTML;
-    // console.log(getword);
-    
-    let getlastidx = getword.length - 1;
-    // console.log(getlastidx);
-    
-    let delinterval = setInterval(function () {
-        
-        if (getlastidx >= 0) {
-            
-            gettextani.innerHTML = gettextani.innerHTML.substring(0, gettextani.innerHTML.length - 1);
-            getlastidx--;
-            
-        } else {
+  let getword = gettextani.innerHTML;
+  // console.log(getword);
 
-            gettextani.classList.remove(colors[languages.indexOf(getword)]);
-            showwords(languages[gen.next().value]);
-            clearInterval(delinterval);
-        }
-        
-    }, 500)
-    
+  let getlastidx = getword.length - 1;
+  // console.log(getlastidx);
+
+  let delinterval = setInterval(function () {
+    if (getlastidx >= 0) {
+      gettextani.innerHTML = gettextani.innerHTML.substring(
+        0,
+        gettextani.innerHTML.length - 1
+      );
+      getlastidx--;
+    } else {
+      gettextani.classList.remove(colors[languages.indexOf(getword)]);
+      showwords(languages[gen.next().value]);
+      clearInterval(delinterval);
+    }
+  }, 500);
 }
 
 let gen = generator();
@@ -136,22 +128,20 @@ let gettxtlights = document.querySelectorAll(".text-light");
 // console.log(gettxtlights);
 
 gettxtlights.forEach(function (gettxtlight) {
-    
-    // console.log(gettxtlight);
-    let arrtexts = gettxtlight.textContent.split("");
-    // console.log(arrtexts);
+  // console.log(gettxtlight);
+  let arrtexts = gettxtlight.textContent.split("");
+  // console.log(arrtexts);
 
-    gettxtlight.textContent = "";
+  gettxtlight.textContent = "";
 
-    arrtexts.forEach(function (arrtext, idx) {
-        
-        // console.log(arrtext);
-        let newem = document.createElement("em");
-        newem.textContent = arrtext;
-        newem.style.animationDelay = `${idx * 0.1}s`;
+  arrtexts.forEach(function (arrtext, idx) {
+    // console.log(arrtext);
+    let newem = document.createElement("em");
+    newem.textContent = arrtext;
+    newem.style.animationDelay = `${idx * 0.1}s`;
 
-        gettxtlight.append(newem);
+    gettxtlight.append(newem);
 
-        console.log(newem);
-    })
+    console.log(newem);
+  });
 });
