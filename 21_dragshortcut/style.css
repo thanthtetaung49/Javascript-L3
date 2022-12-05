@@ -14,17 +14,19 @@ body {
     background-color: steelblue;
     position: absolute;
     cursor: move;
+    z-index: 3;
 }
 
-#box-title {
+.box-title {
     padding: 10px;
+    border-radius: 100%;
 }
 
 .btnIcons {
     color: #fff;
     width: 2rem;
     height: 2rem;
-    background-color: steelblue;
+    background-color: rgb(190, 21, 233);
     border-radius: 50%;
     margin: 2px 0;
     display: flex;
@@ -32,25 +34,36 @@ body {
     align-items: center;
     cursor: pointer;
     position: absolute;
-    left: 0;
-    bottom: 0;
-    transition: all 0.5s ease-in;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    transition: all 0.3s linear;
+}
+
+.btns.show .btnIcons {
+    visibility: visible;
 }
 
 .btns.show .btnIcons:nth-of-type(1) {
-    bottom: 40px;
+    background-color: darkblue;
+    left: 50%;
+    top: -30px;
 }
 
 .btns.show .btnIcons:nth-of-type(2) {
-    left: 40px;
-    bottom: 30px;
+    background-color: green;
+    left: -30px;
+    top: 50%;
 }
 
 .btns.show .btnIcons:nth-of-type(3) {
-    left: 45px;
-    bottom: -10px;
+    background-color: skyblue;
+    left: calc(100% + 30px);
+    top: 50%;
 }
 
 .btns.show .btnIcons:nth-of-type(4) {
-    bottom: -30px;
+    left: 50%;
+    top: calc(100% + 30px);
 }

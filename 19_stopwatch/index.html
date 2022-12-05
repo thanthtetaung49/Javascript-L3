@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stop Watch</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-    <link rel="stylesheet" href="./style.css" type="text/css"/>
-</head>
-<body>
-
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+  </head>
+  <body>
     <div class="container">
-        <h2><i class="fas fa-stopwatch"></i>Stop Watch</h2>
-        <button type="button" class="btn mode-btn">
-            <i class="fas fa-tools"></i>
+      <h2><i class="fas fa-stopwatch"></i>Stop Watch</h2>
+      <button type="button" class="btn mode-btn">
+        <i class="fas fa-tools"></i>
+      </button>
+
+      <div class="display">00 : 00 : 00 : 000</div>
+      <div class="display">
+        <span id="display-second">00</span>:<span id="display-millisecond"
+          >00</span
+        >
+      </div>
+
+      <div class="control">
+        <button type="button" class="btn start">
+          <i class="fas fa-play"></i> Start
         </button>
-
-        <div class="display">00 : 00 : 00 : 000</div>
-        <div class="display">
-            <span id="display-second">00</span>:<span id="display-millisecond">00</span>
-        </div>
-
-        <div class="control">
-            <button type="button" class="btn start"><i class="fas fa-play"></i> Start</button>
-            <button type="button" class="btn pause"><i class="fas fa-pause"></i> Pause</button>
-            <button type="button" class="btn reset"><i class="fas fa-sync"></i> Reset</button>
-        </div>
+        <button type="button" class="btn pause">
+          <i class="fas fa-pause"></i> Pause
+        </button>
+        <button type="button" class="btn reset">
+          <i class="fas fa-sync"></i> Reset
+        </button>
+      </div>
     </div>
 
     <script src="./app.js" type="text/javascript"></script>
-    
-</body>
+  </body>
 </html>

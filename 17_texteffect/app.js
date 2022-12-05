@@ -73,7 +73,6 @@ function* generator() {
 // console.log(languages[testnumber.next().value]);
 
 function showwords(word) {
-  // console.log(word);
 
   let x = 0;
 
@@ -101,7 +100,7 @@ function showwords(word) {
 
 function deletewords() {
   let getword = gettextani.innerHTML;
-  // console.log(getword);
+  console.log(getword);
 
   let getlastidx = getword.length - 1;
   // console.log(getlastidx);
@@ -142,6 +141,6 @@ gettxtlights.forEach(function (gettxtlight) {
 
     gettxtlight.append(newem);
 
-    console.log(newem);
+    // console.log(newem);
   });
 });

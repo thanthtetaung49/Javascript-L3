@@ -1,9 +1,16 @@
 const getBox = document.querySelector(".box");
 const getButtons = document.querySelector(".btns");
-console.log(getButtons);
+const boxTitle = document.querySelector("#boxTitle");
 
-getBox.addEventListener("click", function () {
-  getButtons.classList.toggle("show");
+getBox.addEventListener("click", function (e) {
+  // getButtons.classList.toggle("show");
+  getButtons.classList.add("show");
+  // console.log(e.target);
+  smallBox(e.target);
+});
+
+getBox.addEventListener("dblclick", function () {
+  getButtons.classList.remove("show");
 });
 
 dragBox(getBox);
@@ -13,7 +20,13 @@ function dragBox(getElement) {
 
   var getClientX, getClientY, setClientX, setClientY;
 
-  getElement.onmousedown = getMouseDown;
+  // design 1
+  // getElement.onmousedown = getMouseDown;
+
+  // design 2
+  if (getElement) {
+    boxTitle.onmousedown = getMouseDown;
+  }
 
   function getMouseDown(e) {
     // console.log(e.target);
@@ -53,8 +66,10 @@ function dragBox(getElement) {
 
     console.log("btn left => ", btnLeft, "setClientX => ", setClientX);
 
-    console.log(btnLeft - setClientX);
+    // console.log(btnLeft - setClientX);
     // console.log(btnTop - setClientY);
+
+    getButtons.classList.remove("show");
   }
 
   function stopDrag() {
@@ -63,4 +78,15 @@ function dragBox(getElement) {
   }
 }
 
+function smallBox(iconBox) {
+  // console.log(iconBox);
+  if (iconBox.classList.contains("icons")) {
+    console.log("yes");
+  } else {
+    console.log("no");
+  }
+}
+
 // 8DG
+
+// 21MM
